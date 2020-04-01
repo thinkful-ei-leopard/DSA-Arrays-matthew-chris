@@ -37,7 +37,7 @@ class Array {
   }
 
   pop() {
-    if (this.length == 0) {
+    if (this.length === 0) {
       throw new Error('Index error');
     }
     const value = memory.get(this.ptr + this.length -1 );
@@ -227,55 +227,108 @@ function removeChars(str, charsToRemove) {
 //10.
 // Complexity: O(n)
 function products(arr) {
-  let temp = []
+  let temp = [];
 
-  let product = 1
+  let product = 1;
   for (let i = 0; i < arr.length;i++) {
-    temp[i] = product
-    product *= arr[i]
+    temp[i] = product;
+    product *= arr[i];
   }
 
-  product = 1
+  product = 1;
   for(let i = arr.length -1; i >= 0; i--) {
-    temp[i] *= product
-    product *= arr[i]
+    temp[i] *= product;
+    product *= arr[i];
   }
 
-  return temp
+  return temp;
 }
 
 // let testArray = [1, 3, 9, 4]
 // console.log(products(testArray))
 //Array(4) [108, 36, 12, 27]
 
-//11.
+//11
+// Complexity: O(n^2)
 function twoDArray(arr) {
-  let i = 0, j = 0;
+  let rowFlag, colFlag = false;
 
-  while(i < arr.length) {
-    console.log(`i: ${i}, j: ${j}`)
-    if(arr[i][j] === 0) {
-      arr[i].fill(0);
-      console.log(`filled row at index [${i}, ${j}]`)
-    }
-    if(arr[i][j] !== 0 && j < arr[i].length) {
-      console.log(`Index [${i}, ${j}] is not 0`)
-      j++;
-    } else {
-      console.log(`Index [${i}, ${j}] is 0`);
-      j = 0;
-      i++;
+  for(let j = 0; j < arr[0].length; j++) {
+    if(arr[0][j] === 0) {
+      rowFlag = true;
+      break;
     }
   }
+
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i][0] === 0) {
+      colFlag = true;
+      break;
+    }
+  }
+
+  for(let i = 1; i < arr.length; i++) {
+    for(let j = 1; j < arr[i].length; j++) {
+      if(arr[i][j] === 0) {
+        arr[0][j] = arr[i][0] = 0;
+      }
+    }
+  }
+
+  for(let i = 1; i < arr.length; i++) {
+    for(let j = 1; j < arr[i].length; j++) {
+      if(arr[0][j] === 0 || arr[i][0] === 0) {
+        arr[i][j] = 0;
+      }
+    }
+  }
+
+  for(let j = 0; rowFlag && j < arr[0].length; j++) {
+    arr[0][j] = 0;
+  }
+
+  for(let i = 0; colFlag && i < arr.length; i++) {
+    arr[i][0] = 0;
+  }
+
   return arr;
 }
 
-let testArray = [
-  [1,0,1,1,0],
-  [0,1,1,1,0],
-  [1,1,1,1,1],
-  [1,0,1,1,1],
-  [1,1,1,1,1]];
+// let testArray = [
+//   [1,0,1,1,0],
+//   [0,1,1,1,0],
+//   [1,1,1,1,1],
+//   [1,0,1,1,1],
+//   [1,1,1,1,1]];
   
-console.table(twoDArray(testArray))
-// twoDArray(testArray)
+// console.table(twoDArray(testArray));
+// ┌─────────┬───┬───┬───┬───┬───┐
+// │ (index) │ 0 │ 1 │ 2 │ 3 │ 4 │
+// ├─────────┼───┼───┼───┼───┼───┤
+// │    0    │ 0 │ 0 │ 0 │ 0 │ 0 │
+// │    1    │ 0 │ 0 │ 0 │ 0 │ 0 │
+// │    2    │ 0 │ 0 │ 1 │ 1 │ 0 │
+// │    3    │ 0 │ 0 │ 0 │ 0 │ 0 │
+// │    4    │ 0 │ 0 │ 1 │ 1 │ 0 │
+// └─────────┴───┴───┴───┴───┴───┘
+
+//12
+// Complexity O(n)
+function rotate(str1, str2) {
+  if(!str1 || !str1) {
+    return false;
+  }
+
+  if(str1.length !== str2.length) {
+    return false;
+  }
+
+  return (str1 + str1).includes(str2);
+}
+
+let str1 = 'amazon';
+let str2 = 'azonma';
+console.log(rotate(str1, str2));
+str2 = 'azonam';
+console.log(rotate(str1, str2));
+//output: false, true
