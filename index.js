@@ -63,6 +63,20 @@ class Array {
   }
 }
 
+function urlify(str) {
+  // return str.replace(' ', '%20');
+  let result = '';
+  for(let i = 0; i < str.length; i++) {
+    let c = str[i];
+    if(c === ' ') {
+      result += '%20';
+    } else {
+      result += c;
+    }
+  }
+  return result;
+}
+
 function main() {
   Array.SIZE_RATIO = 3;
 
@@ -73,7 +87,9 @@ function main() {
   console.log(arr.get(0));
 }
 
-main();
+// main();
+
+console.log(urlify('tauhida parveen'))
 
 
 //2. 
