@@ -58,4 +58,17 @@ class Array {
     this.length--;
   }
 }
-Array.SIZE_RATIO = 3;
+
+function main() {
+  Array.SIZE_RATIO = 3;
+
+  let arr = new Array();
+  
+  arr.push(3);
+
+  console.log(arr)
+}
+
+main()
+
+console.log(memory)
