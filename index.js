@@ -177,3 +177,30 @@ function fastMaxSum(arr) {
   }
   return maxSum;
 }
+
+//8
+
+function mergeSort(arr, arr2) {
+  let newArr = arr.concat(arr2);
+  return newArr.sort();
+}
+
+//Complexity: O(logn)
+function merge(left, right) {
+  let arr = [];
+
+  while(left.length && right.length) {
+    if(left[0] < right[0]) {
+      arr.push(left.shift());
+    } else {
+      arr.push(right.shift());
+    }
+  }
+  return arr.concat(left.slice().concat(right.slice()));
+}
+
+// let testArr = [1, 3, 6, 8, 11];
+// let testArr2 = [2, 3, 5, 8, 9, 10];
+// console.log(merge(testArr, testArr2));
+
+//9.
