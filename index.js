@@ -1,4 +1,6 @@
-const memory = require('./memory');
+const Memory = require('./memory');
+
+let memory = new Memory();
 
 class Array {
   constructor() {
@@ -66,9 +68,7 @@ function main() {
   
   arr.push(3);
 
-  console.log(arr)
+  console.log(arr);
 }
 
-main()
-
-console.log(memory)
+main();
