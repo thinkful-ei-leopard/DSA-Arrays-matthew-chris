@@ -223,3 +223,26 @@ function removeChars(str, charsToRemove) {
 // let chars = 'aeiou'
 // console.log(removeChars(string, chars))
 // Bttl f th Vwls: Hw vs. Grzny
+
+//10.
+// Complexity: O(n)
+function products(arr) {
+  let temp = []
+
+  let product = 1
+  for (let i = 0; i < arr.length;i++) {
+    temp[i] = product
+    product *= arr[i]
+  }
+
+  product = 1
+  for(let i = arr.length -1; i >= 0; i--) {
+    temp[i] *= product
+    product *= arr[i]
+  }
+
+  return temp
+}
+
+let testArray = [1, 3, 9, 4]
+console.log(products(testArray))
