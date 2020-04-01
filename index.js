@@ -10,7 +10,9 @@ class Array {
   }
 
   push(value) {
-    this._resize(this.length + 1);
+    if (this.length >= this._capacity) {
+      this._resize((this.length +1) * Array.SIZE_RATIO);
+    }
     memory.set(this.ptr + this.length, value);
     this.length++;
   }
@@ -67,8 +69,25 @@ function main() {
   let arr = new Array();
   
   arr.push(3);
+  arr.push(5);
+  arr.push(15);
+  arr.push(19);
+  arr.push(45);
+  arr.push(10);
 
   console.log(arr);
 }
 
 main();
+
+
+//2. 
+//What is the length, capacity and memory address of your array?
+//length = 1, capacity= 3, ptr = 0
+//
+//What is the length, capacity and memory address of your array after adding pushes?
+//length = 6, capacity= 12, ptr = 3
+//
+//Explain the result of your program after adding the new lines of code.
+//Every push adds 1 to the length, the capacity size is tripled once array capacity is filled,
+//and the pointer changes when array is copied to memory space
