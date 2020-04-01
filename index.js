@@ -247,3 +247,35 @@ function products(arr) {
 // let testArray = [1, 3, 9, 4]
 // console.log(products(testArray))
 //Array(4) [108, 36, 12, 27]
+
+//11.
+function twoDArray(arr) {
+  let i = 0, j = 0;
+
+  while(i < arr.length) {
+    console.log(`i: ${i}, j: ${j}`)
+    if(arr[i][j] === 0) {
+      arr[i].fill(0);
+      console.log(`filled row at index [${i}, ${j}]`)
+    }
+    if(arr[i][j] !== 0 && j < arr[i].length) {
+      console.log(`Index [${i}, ${j}] is not 0`)
+      j++;
+    } else {
+      console.log(`Index [${i}, ${j}] is 0`);
+      j = 0;
+      i++;
+    }
+  }
+  return arr;
+}
+
+let testArray = [
+  [1,0,1,1,0],
+  [0,1,1,1,0],
+  [1,1,1,1,1],
+  [1,0,1,1,1],
+  [1,1,1,1,1]];
+  
+console.table(twoDArray(testArray))
+// twoDArray(testArray)
