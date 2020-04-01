@@ -204,3 +204,22 @@ function merge(left, right) {
 // console.log(merge(testArr, testArr2));
 
 //9.
+
+// Complexity: O(n^2)
+function removeChars(str, charsToRemove) {
+  for(let i = 0; i < str.length; i++) {
+    let strIndex = str[i];
+    for(let j = 0; j < charsToRemove.length; j++) {
+      let charIndex = charsToRemove[j];
+      if(strIndex !== charIndex) {
+        str = str.replace(charIndex, '');
+      }
+    }
+  }
+  return str;
+}
+
+// let string = 'Battle of the Vowels: Hawaii vs. Grozny'
+// let chars = 'aeiou'
+// console.log(removeChars(string, chars))
+// Bttl f th Vwls: Hw vs. Grzny
