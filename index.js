@@ -78,18 +78,6 @@ function urlify(str) {
   return result;
 }
 
-// Complexity: O(n)
-function filter(arr, num) {
-  let result = []; //O(1)
-  for(let i = 0; i < arr.length; i++) { //O(n)
-    let index = arr[i];
-    if(index >= num) {
-      result.push(index);
-    }
-  }
-  return result;
-}
-
 function main() {
   Array.SIZE_RATIO = 3;
 
@@ -139,3 +127,53 @@ function main() {
 // let testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // console.log(filter(testArr, 5));
 // Array(5) [5, 6, 7, 8, 9]
+
+// Complexity: O(n)
+function filter(arr, num) {
+  let result = []; //O(1)
+  for(let i = 0; i < arr.length; i++) { //O(n)
+    let index = arr[i];
+    if(index >= num) {
+      result.push(index);
+    }
+  }
+  return result;
+}
+
+//7.
+// let testArr = [4, 6, -3, 5, -2, 1];
+// console.log(maxSum(testArr));
+// output: 12
+// console.log(fastMaxSum(testArr));
+// output: 12
+
+// Our solution
+// Complexity: O(n^2)
+function maxSum(arr) {
+  let sum = 0;
+  let maxSum = 0;
+  for(let i = 0; i < arr.length; i++) {
+    sum = arr[i];
+    for(let j = i + 1; j < arr.length; j++) {
+      sum += arr[j];
+      if(sum > maxSum) {
+        maxSum = sum;
+      }
+    }
+  }
+  return maxSum;
+}
+
+// After some research, can be reduced to O(n)
+// Could be reduced even further to O(nlogn),
+// however, this would require a 'divide and conquer' method
+// that does not end up saving as much time with bigger inputs
+function fastMaxSum(arr) {
+  let sum = 0;
+  let maxSum = 0;
+  for(let i = 0; i < arr.length; i++) {
+    sum = Math.max(0, sum + arr[i]);
+    maxSum = Math.max(sum, maxSum);
+  }
+  return maxSum;
+}
