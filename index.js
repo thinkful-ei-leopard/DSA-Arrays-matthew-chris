@@ -78,18 +78,29 @@ function urlify(str) {
   return result;
 }
 
+// Complexity: O(n)
+function filter(arr, num) {
+  let result = []; //O(1)
+  for(let i = 0; i < arr.length; i++) { //O(n)
+    let index = arr[i];
+    if(index >= num) {
+      result.push(index);
+    }
+  }
+  return result;
+}
+
 function main() {
   Array.SIZE_RATIO = 3;
 
   let arr = new Array();
   
- arr.push('tauhida')
+  arr.push('tauhida');
 
   console.log(arr.get(0));
 }
 
 // main();
-
 
 //2. 
 //What is the length, capacity and memory address of your array?
@@ -124,3 +135,7 @@ function main() {
 //console.log(urlify('tauhida parveen'))
 //tauhida%20parveen
 
+//6.
+// let testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// console.log(filter(testArr, 5));
+// Array(5) [5, 6, 7, 8, 9]
