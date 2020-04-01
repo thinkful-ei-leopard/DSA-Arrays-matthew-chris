@@ -68,17 +68,9 @@ function main() {
 
   let arr = new Array();
   
-  arr.push(3);
-  arr.push(5);
-  arr.push(15);
-  arr.push(19);
-  arr.push(45);
-  arr.push(10);
-  arr.pop();
-  arr.pop();
-  arr.pop();
+ arr.push('tauhida')
 
-  console.log(arr);
+  console.log(arr.get(0));
 }
 
 main();
@@ -102,3 +94,13 @@ main();
 //Explain the result of your program after adding the new lines of code.
 //the array remains in the same memory space but the length of the array
 //decreases by 1 for each pop
+
+//4.
+//What is the result? 
+//NaN
+//
+//Can you explain your result? 
+//The element we added to the array is a string but the memory class was init as float
+//
+//What is the purpose of the _resize() function in your Array class?
+//Copies the data to a new memory space, moves the ptr to that new space, and increases the capacity
