@@ -1,3 +1,4 @@
+//1.
 const Memory = require('./memory');
 
 let memory = new Memory();
@@ -63,21 +64,7 @@ class Array {
   }
 }
 
-// Complexity: O(n)
-function urlify(str) {
-  // return str.replace(' ', '%20');
-  let result = '';
-  for(let i = 0; i < str.length; i++) { //0(n)
-    let c = str[i];
-    if(c === ' ') { 
-      result += '%20';
-    } else {
-      result += c;
-    }
-  }
-  return result;
-}
-
+//2.
 function main() {
   Array.SIZE_RATIO = 3;
 
@@ -89,8 +76,7 @@ function main() {
 }
 
 // main();
-
-//2. 
+ 
 //What is the length, capacity and memory address of your array?
 //length = 1, capacity= 3, ptr = 0
 //
@@ -120,6 +106,20 @@ function main() {
 //Copies the data to a new memory space, moves the ptr to that new space, and increases the capacity
 
 //5.
+// Complexity: O(n)
+function urlify(str) {
+  // return str.replace(' ', '%20');
+  let result = '';
+  for(let i = 0; i < str.length; i++) { //0(n)
+    let c = str[i];
+    if(c === ' ') { 
+      result += '%20';
+    } else {
+      result += c;
+    }
+  }
+  return result;
+}
 //console.log(urlify('tauhida parveen'))
 //tauhida%20parveen
 
@@ -244,5 +244,6 @@ function products(arr) {
   return temp
 }
 
-let testArray = [1, 3, 9, 4]
-console.log(products(testArray))
+// let testArray = [1, 3, 9, 4]
+// console.log(products(testArray))
+//Array(4) [108, 36, 12, 27]
