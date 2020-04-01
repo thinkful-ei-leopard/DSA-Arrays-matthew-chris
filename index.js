@@ -74,6 +74,9 @@ function main() {
   arr.push(19);
   arr.push(45);
   arr.push(10);
+  arr.pop();
+  arr.pop();
+  arr.pop();
 
   console.log(arr);
 }
@@ -91,3 +94,11 @@ main();
 //Explain the result of your program after adding the new lines of code.
 //Every push adds 1 to the length, the capacity size is tripled once array capacity is filled,
 //and the pointer changes when array is copied to memory space
+
+//3.
+//What is the length, capacity, and address of your array?
+//length = 3, capacity= 12, ptr = 3
+//
+//Explain the result of your program after adding the new lines of code.
+//the array remains in the same memory space but the length of the array
+//decreases by 1 for each pop
