@@ -63,12 +63,13 @@ class Array {
   }
 }
 
+// Complexity: O(n)
 function urlify(str) {
   // return str.replace(' ', '%20');
   let result = '';
-  for(let i = 0; i < str.length; i++) {
+  for(let i = 0; i < str.length; i++) { //0(n)
     let c = str[i];
-    if(c === ' ') {
+    if(c === ' ') { 
       result += '%20';
     } else {
       result += c;
@@ -88,8 +89,6 @@ function main() {
 }
 
 // main();
-
-console.log(urlify('tauhida parveen'))
 
 
 //2. 
@@ -120,3 +119,8 @@ console.log(urlify('tauhida parveen'))
 //
 //What is the purpose of the _resize() function in your Array class?
 //Copies the data to a new memory space, moves the ptr to that new space, and increases the capacity
+
+//5.
+//console.log(urlify('tauhida parveen'))
+//tauhida%20parveen
+
